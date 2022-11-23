@@ -7,7 +7,6 @@ const answerCountFilm = 'How many film do you watch?',
 const numberOfFilms = prompt(answerCountFilm ,'');
     
 
-
 const personalMovieBD = {
     conunt: numberOfFilms,
     movies:{},
@@ -16,16 +15,16 @@ const personalMovieBD = {
     privat:false
 };
 
-
+const c = personalMovieBD.conunt;
 
 switch(true){
-    case ((personalMovieBD.conunt < 10) && (personalMovieBD.conunt > 0)):
+    case (( c < 10) && (c > 0)):
         alert('You have not seen a lot of films');
         break;
-    case ((personalMovieBD.conunt < 20) && (personalMovieBD.conunt > 10)):
+    case ((c < 20) && (c > 10)):
         alert('You clacial viewer');
         break;
-    case ((personalMovieBD.conunt > 30)):
+    case ((c > 30)):
         alert('You is real cinophile');
         break;
     default:
