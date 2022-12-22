@@ -10,17 +10,17 @@ let genreFilms;
 
 
 const personalMovieBD = {
+    count: 0,
     movies:{},
     actors:{},
     genres:[],
     privat:false,
     genre:[],
     countOfFilms:function () {
-        numberOfFilms = prompt(answerCountFilm ,'');
-        while (numberOfFilms == '' || numberOfFilms == null ||isNaN(numberOfFilms)){
-                numberOfFilms = prompt(answerCountFilm ,'');
+        this.count = prompt(answerCountFilm ,'');
+        while (this.count == '' || this.count == null ||isNaN(this.count)){
+            this.count = prompt(this.count ,'');
         }
-        return numberOfFilms;
     },
     writeYourGenre:function () {
         for(let i = 0; i < 3; i++){
@@ -36,7 +36,7 @@ const personalMovieBD = {
             console.log(personalMovieBD.genre);},
 
     detectPersonalLevel:function (){
-        const c = this.countOfFilms();
+        const c = this.count;
         switch(true){
             case (( c < 10) && (c > 0)):
                 alert('You have not seen a lot of films');
@@ -59,7 +59,7 @@ const personalMovieBD = {
                 personalMovieBD.movies[a] = b;
             }
         }
-        return personalMovieBD;      
+            
     },
     toggleVisibleMyBD: function(){
         if (this.privat === false){
@@ -80,8 +80,8 @@ const personalMovieBD = {
 };
 
 
-personalMovieBD.writeYourGenre();
-
+personalMovieBD.countOfFilms();
+console.log(personalMovieBD);
 
 
 
