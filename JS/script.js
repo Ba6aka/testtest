@@ -1,91 +1,41 @@
-"Use strict";
-
-const answerCountFilm = 'How many film do you watch?',
-    answerFilmName = 'what is the name of the last movie',
-    answerFilmRate = 'how would you rate it',
-    answerMovieGenre = `what is your favorite movie genre number`;
-
-let numberOfFilms;
-let genreFilms;
-
-
-const personalMovieBD = {
-    count: 0,
-    movies:{},
-    actors:{},
-    genres:[],
-    privat:false,
-    genre:[],
-    countOfFilms:function () {
-        this.count = prompt(answerCountFilm ,'');
-        while (this.count == '' || this.count == null ||isNaN(this.count)){
-            this.count = prompt(this.count ,'');
+const restorantData = {
+    menu: [
+        {
+            name: 'Salad Caesar',
+            price: '14$'
+        },
+        {
+            name: 'Pizza Diavola',
+            price: '9$'
+        },
+        {
+            name: 'Beefsteak',
+            price: '17$'
+        },
+        {
+            name: 'Napoleon',
+            price: '7$'
         }
-    },
-    writeYourGenre:function () {
-        for(let i = 0; i < 3; i++){
-            genreFilms = prompt(`${answerMovieGenre} ${i+1}` ,'');
-            if (genreFilms != null && genreFilms != '' && genreFilms.length < 50 ){
-                this.genre[i] = genreFilms;   
-            }
-            else{
-                i--;
-            }
-            
-    }
-            console.log(personalMovieBD.genre);},
-
-    detectPersonalLevel:function (){
-        const c = this.count;
-        switch(true){
-            case (( c < 10) && (c > 0)):
-                alert('You have not seen a lot of films');
-                break;
-            case ((c < 20) && (c > 10)):
-                alert('You clacial viewer');
-                break;
-            case ((c > 30)):
-                alert('You is real cinophile');
-                break;
-            default:
-                alert('something is not ok');
-        }
-    },
-    rememberMyFilms:function (){
-        while (2 > Object.keys(personalMovieBD.movies).length){
-            const a = prompt(answerFilmName, ''),
-                b = prompt(answerFilmRate,'');
-            if (a != null && b != null && a != '' && b != '' && a.length < 50 && b.length < 50){
-                personalMovieBD.movies[a] = b;
-            }
-        }
-            
-    },
-    toggleVisibleMyBD: function(){
-        if (this.privat === false){
-            this.privat = true;
-        }
-        else {
-            this.privat = false;
-        } 
-    },
-    showMyBD:function () {
-        if (this.privat === false){
-            this.genre.forEach(function(item, i){
-                console.log(`Любимый жанр ${i+1} - это ${item}`);
-            });
-        }
-    }
-
+    ],
+    waitors: [
+        {name: 'Alice', age: 22}, {name: 'John', age: 24}
+    ],
+    averageLunchPrice: '20$',
+    openNow: true
 };
 
 
-personalMovieBD.countOfFilms();
-console.log(personalMovieBD);
+
+function transferWaitors(data) {
+    const copy = {...data};
+
+    copy.waitors= {name: 'Mike', age: 32};
+    return copy;
+}
 
 
 
+copy = transferWaitors(restorantData);
 
-
-
-
+console.log(restorantData.waitors);
+console.log('вжик' < 'блоко');
